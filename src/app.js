@@ -5,6 +5,12 @@ const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const postRoutes = require("./routes/post.routes");
 const errorHandler = require("./middleware/errorHandler");
+const commentRoutes = require("./routes/comment.routes");
+const likeRoutes = require("./routes/like.routes");
+const followRoutes = require("./routes/follow.routes");
+const notificationRoutes = require("./routes/notification.routes");
+
+
 
 const app = express();
 
@@ -17,6 +23,11 @@ app.use(morgan("dev"));
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("/api/likes", likeRoutes);
+app.use("/api/follows", followRoutes);
+app.use("/api/notifications", notificationRoutes);
+
 
 // Health check
 app.get("/", (req, res) => {
